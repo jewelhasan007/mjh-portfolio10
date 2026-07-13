@@ -107,6 +107,7 @@ export default function RootLayout({
       </head>
       <body
         className={`${sora.variable} ${inter.variable} ${plexMono.variable} antialiased`}
+        suppressHydrationWarning
       >
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           {children}

@@ -24,6 +24,8 @@ export const roles = [
   "Full Stack Developer",
   "MERN Stack Developer",
   "Digital Marketer",
+  "Shopify Expert",
+  "Amazon Product Research Expert(FBA)"
 ];
 
 export const hero = {
@@ -37,6 +39,8 @@ export const about = {
   items: [
     { title: "Web Developer" },
     { title: "A passionate Digital Marketer" },
+    { title: "Shopify Expert" },
+    { title: "Amazon FBA Expert" },
     { title: "Grow Your Business" },
   ],
 };
