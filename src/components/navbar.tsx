@@ -8,8 +8,10 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { site, hero } from "@/lib/content";
 
 const links = [
+  { href: "#top", label: "Home" },
   { href: "#about", label: "About" },
   { href: "#technologies", label: "Technologies" },
+  { href: "#project", label: "Projects" },
   { href: "#contact", label: "Contact" },
 ];
 
