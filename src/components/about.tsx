@@ -105,10 +105,28 @@ const experience = [
 
 const education = [
   {
+    degree: "Advanced Web Development Course",
+    school: "Programming Hero",
+    period: "2024 — 2025",
+    description: "MERN Stack Developer",
+  },
+  {
+    degree: "Web Development Course",
+    school: "Interactive Cares BD",
+    period: "2023 — 2024",
+    description: "Full Stack Web Developer",
+  },
+  {
+    degree: "Web Development Course(L-1)",
+    school: "Programming Hero",
+    period: "2022 — 2023",
+    description: "FrontEnd and BackEnd Deveoper", 
+  },
+  {
     degree: "B.Sc. in EEE",
     school: "KUET",
     period: "2004 — 2009",
-    description: "Relevant coursework, honors, or achievements.",
+    description: "Bachelor Degree",
   },
 ];
 
