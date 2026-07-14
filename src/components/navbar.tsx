@@ -17,7 +17,8 @@ import {
   Mail,
 } from "lucide-react";
 
-const links = [
+
+ const links = [
   {
     href: "#top",
     label: "Home",
@@ -49,6 +50,11 @@ export function Navbar() {
   const [open, setOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
   const [active, setActive] = React.useState("#top");
+
+  const handleClick = (href: string) => {
+    setActive(href);
+    setOpen(false);
+  };
 
   // Navbar background on scroll
   React.useEffect(() => {

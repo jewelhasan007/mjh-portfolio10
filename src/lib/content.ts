@@ -69,3 +69,55 @@ export const contact = {
     { label: "LinkedIn", value: "@LinkedIn", href: site.linkedin },
   ],
 };
+
+export type Project = {
+  title: string;
+  description: string;
+  image: string; // path in /public
+  tech: string[];
+  liveUrl?: string;   // Vercel deployment
+  repoUrl?: string;   // GitHub repo
+  featured?: boolean;
+};
+
+
+export const projects: Project[] = [
+  {
+    title: "TaskFlow",
+    description:
+      "A collaborative task management app with real-time updates, drag-and-drop boards, and role-based access control.",
+    image: "/projects/taskflow.png",
+    tech: ["MongoDB", "Express", "React", "Node.js", "Socket.io"],
+    liveUrl: "https://taskflow-demo.vercel.app",
+    repoUrl: "https://github.com/yourname/taskflow",
+    featured: true,
+  },
+  {
+    title: "ShopSphere",
+    description:
+      "Full-stack e-commerce platform with Stripe checkout, product filtering, and an admin dashboard for inventory management.",
+    image: "/projects/shopsphere.png",
+    tech: ["MongoDB", "Express", "React", "Node.js", "Stripe"],
+    liveUrl: "https://shopsphere-demo.vercel.app",
+    repoUrl: "https://github.com/yourname/shopsphere",
+    featured: true,
+  },
+  {
+    title: "DevConnect",
+    description:
+      "A social platform for developers to share projects, follow each other, and comment on posts, with JWT auth.",
+    image: "/projects/devconnect.png",
+    tech: ["MongoDB", "Express", "React", "Node.js", "JWT"],
+    liveUrl: "https://devconnect-demo.vercel.app",
+    repoUrl: "https://github.com/yourname/devconnect",
+  },
+  {
+    title: "WeatherPulse",
+    description:
+      "A weather dashboard with location search, 7-day forecasts, and animated data visualizations.",
+    image: "/projects/weatherpulse.png",
+    tech: ["React", "Node.js", "Chart.js", "OpenWeather API"],
+    liveUrl: "https://weatherpulse-demo.vercel.app",
+    repoUrl: "https://github.com/yourname/weatherpulse",
+  },
+];
