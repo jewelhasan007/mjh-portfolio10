@@ -1,22 +1,15 @@
 "use client";
 
 import * as React from "react";
-import {
-  motion,
-  AnimatePresence,
-  type Variants,
-} from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 
 import { projects, type Project } from "@/lib/content";
 
-// ==================== MISSING PIECES ====================
+// ────── Constants & Variants ──────
+const websiteCategories = ["All", "Landing Page", "E-commerce", "Dashboard", "Blog"];
 
-// Add these (adjust the values according to your data)
-const websiteCategories = ["All", "Landing Page", "E-commerce", "Dashboard", "Blog", /* ... */];
+const industries = ["All", "SaaS", "E-commerce", "Agency", "Restaurant", "Portfolio"];
 
-const industries = ["All", "SaaS", "E-commerce", "Agency", "Restaurant", "Portfolio", /* ... */];
-
-// Framer Motion variants
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   show: {
@@ -27,7 +20,7 @@ const containerVariants: Variants = {
   },
 };
 
-// ProjectCard component (example - replace with your actual one)
+// ────── ProjectCard Component ──────
 function ProjectCard({ project }: { project: Project }) {
   return (
     <motion.div
@@ -35,36 +28,40 @@ function ProjectCard({ project }: { project: Project }) {
         hidden: { opacity: 0, y: 20 },
         show: { opacity: 1, y: 0 },
       }}
-      className="group relative overflow-hidden rounded-2xl border bg-white shadow-sm"
+      className="group relative overflow-hidden rounded-2xl border bg-white shadow-sm hover:shadow-xl transition-all duration-300"
     >
-      {/* Your card content */}
-      <img
-        src={project.image}
-        alt={project.title}
-        className="h-64 w-full object-cover transition-transform group-hover:scale-105"
-      />
+      <div className="aspect-video overflow-hidden">
+        <img
+          src={project.image || "/placeholder.jpg"}
+          alt={project.title}
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
+
       <div className="p-6">
-        <h3 className="text-xl font-semibold">{project.title}</h3>
-        <p className="mt-2 text-sm text-gray-600">{project.description}</p>
+        <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[var(--primary)]">
+          {project.category} • {project.industry}
+        </div>
+        <h3 className="mt-3 text-xl font-semibold text-[var(--ink)]">
+          {project.title}
+        </h3>
+        <p className="mt-2 line-clamp-3 text-sm text-[var(--ink-soft)]">
+          {project.description}
+        </p>
       </div>
     </motion.div>
   );
 }
 
-// =======================================================
-
+// ────── Main Component ──────
 export function ProjectsShowcase2() {
   const [category, setCategory] = React.useState("All");
   const [industry, setIndustry] = React.useState("All");
 
   const filteredProjects = React.useMemo(() => {
     return projects.filter((project) => {
-      const categoryMatch =
-        category === "All" || project.category === category;
-
-      const industryMatch =
-        industry === "All" || project.industry === industry;
-
+      const categoryMatch = category === "All" || project.category === category;
+      const industryMatch = industry === "All" || project.industry === industry;
       return categoryMatch && industryMatch;
     });
   }, [category, industry]);
@@ -74,6 +71,7 @@ export function ProjectsShowcase2() {
       id="projects"
       className="relative mx-auto max-w-6xl scroll-mt-28 px-5 py-24 sm:px-8"
     >
+      {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -81,11 +79,9 @@ export function ProjectsShowcase2() {
         className="mx-auto max-w-2xl text-center"
       >
         <span className="text-sm text-[var(--primary)]">Website Templates</span>
-
         <h2 className="mt-3 text-3xl font-bold text-[var(--ink)] sm:text-4xl">
           Industry Website Solutions
         </h2>
-
         <p className="mt-4 text-[var(--ink-soft)]">
           Explore ready-made website concepts for different businesses and
           industries.
@@ -132,6 +128,7 @@ export function ProjectsShowcase2() {
         </div>
       </div>
 
+      {/* Projects Grid */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
